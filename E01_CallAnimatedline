@@ -1,0 +1,13 @@
+% E01 MATLAB 绘制动图
+clear; close all; clc;
+t = 0:1e-1:2*pi;
+
+figure(1);
+L_k = animatedline('color', 'k');
+L_r = animatedline('color', 'r');
+axis([0, 10, -1, 1]);              % 固定大小
+for i = 1:size(t, 2)-1
+    addpoints(L_k, t(i), cos(t(i)));
+    addpoints(L_r, t(i), sin(t(i)));
+    drawnow;                        % 立即绘制
+end
